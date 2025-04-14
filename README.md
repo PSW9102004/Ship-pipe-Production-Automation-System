@@ -80,7 +80,7 @@ This project simulates and optimizes a real-world **ship pipe manufacturing proc
 ## Author
 👤 Prathamesh Wagh
 Third-Year B.Tech Student – IIITDM Jabalpur
-💻 Passionate about Theoretical Physics | AI | Optimization | Simulation
+
 
 
 
