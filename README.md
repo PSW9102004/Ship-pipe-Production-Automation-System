@@ -1,86 +1,82 @@
-# 🚢 Ship Pipe Production Automation System
+# Reinforcement Learning-Enhanced Scheduling
 
-![Production](https://img.shields.io/badge/Optimization-Evolutionary-blue) ![SimPy](https://img.shields.io/badge/SimPy-Discrete--Event--Simulation-green) ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+A hybrid scheduling system combining multi-objective SFL-DEA optimization and reinforcement learning for resilient, energy-efficient, and adaptive production in intelligent manufacturing.
 
-> **Optimized Scheduling and Simulation System for Ship Pipe Production** using multi-objective evolutionary algorithms and discrete-event simulation. Built with Python, SFL-DEA, and SimPy.
+## Features
 
----
+* **Multi-Objective Optimization**: Minimizes makespan and total energy consumption simultaneously using an Integer Programming–based SFL-DEA metaheuristic.
+* **Reinforcement Learning Integration**: A Q-learning agent adapts schedules in real time to handle machine failures and dynamic job arrivals.
+* **Detailed Energy Model**: Accounts for load, no-load, and on/off energy consumption, plus robot transport energy.
+* **Good-Point Initialization & Adaptive DE**: Improves convergence speed and solution quality through specialized population seeding and self-adaptive mutation/crossover parameters.
 
-## 📌 Project Overview
+## Repository Structure
 
-This project simulates and optimizes a real-world **ship pipe manufacturing process** using a powerful evolutionary approach based on the **Shuffled Frog Leaping Differential Evolution Algorithm (SFL-DEA)**. It incorporates:
-
-- ⏳ **Minimization of Makespan**
-- ⚡ **Energy-Efficient Scheduling**
-- 🏭 **Factory Assignment & Workflow Optimization**
-- 📊 **Gantt Chart Visualization**
-- ⚙️ **SimPy-based Production Simulation**
-
----
-
-## 🚀 Features
-
-- ✅ **Multi-Objective Optimization**: Simultaneously minimizes total production time and energy usage.
-- 🧠 **Intelligent Scheduling**: Evolves 100 candidate schedules over 400 generations.
-- 📦 **Factory Load Balancing**: Automatically distributes jobs across multiple factories.
-- 📈 **Visual Dashboard**: Gantt chart of job timelines and operations.
-- 🔄 **Event-Based Simulation**: Realistic modeling of job flow and machine utilization using `SimPy`.
-
----
-
-## 🛠️ Technologies Used
-
-| Tool            | Description                                 |
-|-----------------|---------------------------------------------|
-| 🐍 Python        | Core programming language                   |
-| 📘 SimPy         | Event-driven simulation engine              |
-| 📉 Matplotlib    | Gantt chart generation & visualization      |
-| 🧬 NumPy         | Data structures & random initialization     |
-| 💡 SFL-DEA       | Custom evolutionary optimization logic      |
-
----
-
-## 🧪 How It Works
-
-1. **Initialize Population**: 100 randomized schedules and factory assignments.
-2. **Evolve with SFL-DEA**: Mutation, crossover, and local search improve candidates across 400 generations.
-3. **Evaluate Objectives**: Calculates makespan and energy consumption.
-4. **Simulate in Real-Time**: SimPy models each job's movement through factories and machines.
-5. **Visualize**: Gantt chart shows job timelines, colored by operation.
-
----
-
-## 📸 Sample Gantt Chart Output
-
-> *(Will appear after you run the simulation)*
-
-![Gantt Chart](https://user-images.githubusercontent.com/your-image-path-here.png)
-
----
-
-## 🧰 Setup Instructions
-
-1. **Clone the repository**  
-   ```bash
-   git clone https://github.com/PSW9102004/Ship-Pipe-Production-Automation-System.git
-   cd Ship-Pipe-Production-Automation-System
-2. **Install Required Packages**
-   ```bash
-   pip install numpy simpy matplotlib
-3. **Run the Simulation**
-   ``` bash
-   python Ship_pipe.py
-
-##  📂 File Structure 
-```bash
-├── main.py               # Full optimization + simulation code
-├── README.md             # You're reading it!
-├── requirements.txt      # (optional) Python dependencies
 ```
-## Author
-👤 Prathamesh Wagh
-Third-Year B.Tech Student – IIITDM Jabalpur
+├── CIMS_file.py       # Main implementation combining SFL-DEA and RL modules
+├── data/              # Example input datasets (job definitions, machine specs)
+├── results/           # Generated Gantt charts, log files, Q-table snapshots
+├── utils/             # Helper modules (encoding, decoding, energy calculations)
+├── README.md          # Project overview and setup instructions
+└── LICENSE            # MIT License
+```
 
+## Installation
 
+1. Clone the repository:
 
+   ```bash
+   git clone https://github.com/yourusername/rl-sfl-de-scheduler.git
+   cd rl-sfl-de-scheduler
+   ```
+2. Create a Python virtual environment and install dependencies:
 
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+## Usage
+
+* **Train RL Agent**:
+
+  ```bash
+  python train_agent.py --episodes 1000
+  ```
+
+* **Run Scheduler**:
+
+  ```bash
+  python CIMS_file.py
+  ```
+
+  This will:
+
+  * Initialize population with good-point set.
+  * Execute SFL-DEA for multi-objective scheduling.
+  * Invoke RL agent for dynamic adjustments.
+  * Output Gantt chart and performance metrics.
+
+## Configuration
+
+Edit `config.yaml` to adjust:
+
+* Job and operation counts (J, O).
+* Factory and machine settings (W, Wp).
+* Energy parameters (E\_onoff, U\_l, U\_nm, robot energy).
+* SFL-DEA hyperparameters (NP, maxI, uf, uCR, beta, mu).
+* RL agent settings (alpha, gamma, epsilon).
+
+## Results
+
+Results (Pareto front, Gantt charts) are saved in `/results`. Open the HTML or image files to visualize schedules and compare performance under different scenarios.
+
+## References
+
+* Xuan et al., *Ship pipe production optimization...* Expert Systems With Applications, 2025.
+* Sutton & Barto, *Reinforcement Learning: An Introduction*, 2018.
+* Pinedo, *Scheduling: Theory, Algorithms, and Systems*, 2016.
+
+---
+
+*Made with ❤️ for intelligent manufacturing research and development.*
